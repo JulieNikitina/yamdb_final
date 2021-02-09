@@ -1,6 +1,9 @@
 name: Yamdb_final
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   tests:
@@ -45,3 +48,25 @@ jobs:
         with:
           push: true
           tags: julienikitina/yamdb_final:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build_and_push_to_docker_hub
+    steps:
+      - name: executing remote ssh commands to deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "docker-compose.yaml, nginx/default.conf"
+          target: "~/code/"
+          script: |
+            sudo apt-get update -y
+            sudo apt-get remove docker docker-engine docker.io -y
+            sudo apt install docker.io -y
+            sudo systemctl start docker
+            sudo systemctl enable docker
+            sudo docker pull julienikitina/yamdb_final
+            sudo docker-compose stop $(sudo docker ps -a -q)
+            sudo docker run --rm -d -p 8000:8000 julienikitina/yamdb_final
