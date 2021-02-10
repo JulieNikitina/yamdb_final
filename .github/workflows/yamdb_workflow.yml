@@ -86,7 +86,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           source: "configs/docker-compose.yaml, configs/default.conf"
-          target: "~/code/"
+#          target: "~/code/"
           run: |
             docker-compose down -v
             docker-compose up
