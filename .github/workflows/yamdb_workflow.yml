@@ -89,4 +89,4 @@ jobs:
           target: "~/code/"
           run: |
             docker-compose down -v
-            docker-compose up -d
+            docker-compose up
