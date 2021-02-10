@@ -64,7 +64,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           rm: true
           source: "docker-compose.yaml, nginx/default.conf"
-          target: "yamdb"
+          target: "configs"
 
       - name: installing docker
         uses: appleboy/ssh-action@master
@@ -86,7 +86,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           rm: true
           script: |
-            cd yamdb/
+            cd configs/
             touch .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
@@ -102,6 +102,6 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd yamdb/
+            cd configs/
             sudo docker-compose down -v
             sudo docker-compose up
