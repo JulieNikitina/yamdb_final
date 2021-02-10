@@ -49,23 +49,23 @@ jobs:
           push: true
           tags: julienikitina/yamdb_final:latest
 
-#  deploy:
-#    runs-on: ubuntu-latest
-#    needs: build_and_push_to_docker_hub
-#    steps:
-#      - name: Check out the repo
-#        uses: actions/checkout@v2
-#
-#      - name: Copying files to server
-#        uses: appleboy/scp-action@master
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USER }}
-#          key: ${{ secrets.SSH_KEY }}
-#          rm: true
-#          source: "docker-compose.yaml, nginx/default.conf"
-#          target: "/home/julie_nikitina"
-#
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build_and_push_to_docker_hub
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Copying files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          rm: true
+          source: "docker-compose.yaml, nginx/default.conf"
+          target: "/home/julie_nikitina"
+
 #      - name: installing docker
 #        uses: appleboy/ssh-action@master
 #        with:
