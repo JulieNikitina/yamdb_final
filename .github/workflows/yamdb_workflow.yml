@@ -64,7 +64,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           rm: true
           source: "docker-compose.yaml, nginx/default.conf"
-          target: "home/${{ secrets.USER }}"
+          target: "."
 
       - name: installing docker
         uses: appleboy/ssh-action@master
