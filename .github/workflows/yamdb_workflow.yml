@@ -1,4 +1,4 @@
-name: Yamdb_final
+name: yamdb_final
 
 on:
   push:
