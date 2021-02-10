@@ -91,8 +91,8 @@ jobs:
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
-            DB_HOST=${{ secrets.DB_HOST }} >> .env
-            DB_PORT=${{ secrets.DB_PORT }} >> .env
+            echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+            echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             cat .env
 
       - name: executing remote ssh commands to deploy
@@ -101,7 +101,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          run: |
+          script: |
             cd configs/
             docker-compose down -v
             docker-compose up
