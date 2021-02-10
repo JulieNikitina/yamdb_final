@@ -86,6 +86,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           source: "configs/docker-compose.yaml, configs/nginx/default.conf"
           target: "~/configs/"
-          run: |
+          script: |
             docker-compose down -v
             docker-compose up
