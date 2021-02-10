@@ -74,11 +74,10 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             sudo apt install docker.io -y
+            sudo systemctl start docker
+            sudo systemctl enable docker
             sudo apt install docker-compose
             sudo apt-get update -y
-#              sudo systemctl start docker
-#              sudo systemctl enable docker
-
 
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
