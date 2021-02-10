@@ -13,8 +13,12 @@ services:
     restart: always
     depends_on:
       - db
-    env_file:
-      - ./.env
+    enviroment:
+      - DB_NAME
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - DB_HOST
+      - DB_PORT
   nginx:
     image: nginx:1.19.6
     ports:
