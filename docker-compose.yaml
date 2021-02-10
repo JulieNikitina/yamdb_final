@@ -17,7 +17,7 @@ services:
     env_file:
       - ./.env
     volumes:
-      - /code/static:static-container
+      - static-container:/code/static
   nginx:
     image: nginx:1.19.6
     ports:
