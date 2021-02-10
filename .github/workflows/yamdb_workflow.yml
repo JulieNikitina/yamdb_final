@@ -68,14 +68,14 @@ jobs:
 
       - name: installing docker
         uses: appleboy/ssh-action@master
-          with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USER }}
-            key: ${{ secrets.SSH_KEY }}
-            script: |
-              sudo apt install docker.io -y
-              sudo apt install docker-compose
-              udo apt-get update -y
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            sudo apt install docker.io -y
+            sudo apt install docker-compose
+            sudo apt-get update -y
 #              sudo systemctl start docker
 #              sudo systemctl enable docker
 
