@@ -85,7 +85,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           rm: true
-          script: |
+          run: |
             cd configs/
             touch .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
@@ -101,6 +101,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          script: |
+          run: |
+            cd configs/
             docker-compose down -v
             docker-compose up
