@@ -85,6 +85,6 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd configs
+            cd configs/
             docker-compose down -v
             docker-compose up
