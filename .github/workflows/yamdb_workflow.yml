@@ -102,5 +102,6 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo yamdb/docker-compose down -v
-            sudo yamdb/docker-compose up
+            cd yamdb/
+            sudo docker-compose down -v
+            sudo docker-compose up
