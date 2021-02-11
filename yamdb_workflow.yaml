@@ -1,9 +1,6 @@
 name: yamdb_final
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   tests:
