@@ -94,6 +94,7 @@ jobs:
             cd configs/
             sudo docker-compose down -v
             sudo docker system prune --force
+            sudo docker-compose pull
             sudo docker-compose up -d
 
 
