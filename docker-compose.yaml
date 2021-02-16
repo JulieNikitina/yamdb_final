@@ -19,6 +19,9 @@ services:
     restart: always
     depends_on:
       - db
+    links:
+      - db
+
     env_file:
       - ./.env
     volumes:
