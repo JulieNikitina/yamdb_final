@@ -18,8 +18,7 @@ services:
     image: julienikitina/yamdb_final
     restart: always
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     env_file:
       - ./.env
     volumes:
