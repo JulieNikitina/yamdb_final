@@ -7,7 +7,7 @@ An application that provides a REST API for the YaMDb service, a database of mov
 # Check it works
 * [View API](http://84.201.143.184/api/v1/titles/)
 * [Check beautiful redoc](http://84.201.143.184/redoc/)
-* [View admin](http://84.201.143.184/admin/): Use login - admin, password - admin
+
 ### What I used
 * [Python: 3.8.5](https://www.python.org/)
 * [Django: 3.0.8](https://www.djangoproject.com/)
