@@ -13,7 +13,6 @@ An application that provides a REST API for the YaMDb service, a database of mov
 * [Django: 3.0.8](https://www.djangoproject.com/)
 * [PostgreSQL: 12.4](https://www.postgresql.org/)
 * [Docker: 3.1.0](https://www.docker.com/)
-* Нatred and patience
 * [nginx:1.19.6](https://nginx.org/)
 
 
