@@ -97,6 +97,12 @@ jobs:
             sudo docker system prune --force
             sudo docker-compose pull
             sudo docker-compose up -d
+            sudo docker-compose exec web python manage.py makemigrations
+            sudo docker-compose exec web python manage.py migrate
+            sudo docker-compose exec web python manage.py loaddata fixtures.json
+            sudo docker-compose exec web python manage.py collectstatic --no-input
+
+
 
 
   send_message:
